@@ -10,5 +10,6 @@ The Sieve of Eratosthenes returns the 'random' sequence of prime numbers up to t
 ![Sieve_of_Eratosthenes_animation](https://user-images.githubusercontent.com/22084147/228866250-38f952ff-5ef1-4347-b205-f0b673badd70.gif)
 
 This is the function in practice:
-![image](https://user-images.githubusercontent.com/22084147/228869140-1af3a2c3-24ef-4be1-888e-fb18d374ddab.png)
+
+![image](https://user-images.githubusercontent.com/22084147/228870305-b1c37e50-0dd9-4c15-ab2c-b00b0ac6fb60.png)
 
