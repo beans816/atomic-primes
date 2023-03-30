@@ -1,8 +1,6 @@
 (defun primep(n)
   (and (integerp n)
        (> n 1)
-       ;;fix when learning iteration
-       ;;check out eucilids sequence -> skips 5
        (if (or(= n 2)
 	      (= n 3)
 	      (= n 5)
