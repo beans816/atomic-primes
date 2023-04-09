@@ -16,17 +16,25 @@
 
 
 ;;Sieve of Eratosthenes
-(defun Sieve-of-Eratosthenes (limit)
+(defun Sieve-of-Eratosthenes (number-list)
   "Sieve of Eratosthenes Algorithm returns a list of prime numbers up to a specified limit"
   (let ((prime-list ()))
-    (dolist (number (make-number-list limit) (reverse prime-list))
+    (dolist (number (new-num-list number-list) (reverse prime-list))
       (when (primep number)
 	(push number prime-list))))))
 ;;for the future: (remove-if-not 'primep (make-number-list limit))
 
 ;;define a function that makes a list from 0 up to a limit
-(defun make-number-list (limit)
-"Returns a number list starting from 0 to limit"
+(defun new-num-list (limit)
+"Returns a number list default starting from 0 to limit"
   (let ((number-list))
     (dotimes (i (1+ limit) (reverse number-list))
       (push i number-list))))
+;;for the future: optionally takes a interger to form a starting point like in new-num-list-specify
+
+(defun new-num-list-specify (start limit)
+"Returns a number list starting from n to limit."
+  (let ((number-list))
+    (dotimes (i (- (1+ limit) start) (reverse number-list))
+      (push (+ start i) number-list))))
+;;the main function needs to take 2 arguments for this to work but the function by itself works, and the function name and args changed in the body
