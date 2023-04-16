@@ -1,4 +1,10 @@
-
+#||
+https://en.wikipedia.org/wiki/Eratosthenes
+I like his sieve the most, he knew a lot more then just prime numbers and I am sure he used his knowledge across all his differenct diciplines. 
+Including music theory.
+He was also the closest to calculating the size of the earth just by measuring shadows. He knew the earth was tilted.
+The below code can be obscured to go as fast as possible, if thats what you want then use c++ or a circuit board
+||#
 (defun primep(n)
   "Predicate returns T is number is a prime."
   (and (integerp n)
