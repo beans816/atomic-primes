@@ -6,7 +6,7 @@ He was also the closest to calculating the size of the earth just by measuring s
 The below code can be obscured to go as fast as possible, if thats what you want then use c++ or a circuit board
 ||#
 (defun primep(n)
-  "Predicate returns T is number is a prime."
+  "Predicate returns T if number is a prime."
   (and (integerp n)
        (> n 1)
        (if (or (= n 2)
