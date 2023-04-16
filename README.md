@@ -19,3 +19,7 @@ From wikipedia: 'Goldbach's conjecture is one of the oldest and best-known unsol
 Goldbach's comet also shows an obvious pattern that looks like the upper right side of a hyperbola. This means that the sums of primes can be predicted! It would also give a valid reason of why the greek mathematicians were so obsessed with hyperbolas and primes.
 
 ![image](https://user-images.githubusercontent.com/22084147/232313289-abfe39ab-b15c-4348-a085-53bbc38971cb.png)
+
+Solving this problem is still a work in progress, I have not even completed a single book on lisp yet. But I am working on this when I get bored of the book. To see my progress through the book please see https://github.com/beans816/learning-lisp
+
+Thank you :) !
