@@ -13,6 +13,11 @@
   "Predicate that returns T if a number is in the prime numbers list"
   (memberp n *lpn*))
 
+(defun digit-to-list (n)
+  "Turns a number into a list of numbers so large numbers can be easily manipulated"
+  (let ((as-string (format nil "~D" n)))
+    (mapcar #'parse-integer (mapcar #'string (coerce as-string 'list)))))
+
 (defun primep (n)
   "Predicate returns T if number is a prime."
   (and (integerp n)
@@ -39,11 +44,6 @@
 		      (pushnumber i) (single-factor (/ n i))))))
       (single-factor n)
       primefactors)))
-
-
-      (cond ((evenp n) (/ n 2))
-	((oddp n) (/ n (cond ((= (mod 3 n) 0) 3)
-			     ((= (mod 7 n) 0) 7))))))
 
 (defun goldbach-conjecture (n lpn)
   "Predicate proof based off of Goldbach's conjecture - will return a list of the SUM of the first two prime numbers. The lowest prime number starts at 2 and increments to the next prime number until it returns that either the difference between the lpn and the even number is also a prime (TRUE) or it will return NIL if Goldbach was wrong. In this way you can define a even number differently as the sum of the two lowest prime numbers."
