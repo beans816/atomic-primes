@@ -41,19 +41,23 @@
 
 ;;this can be fixed
 ;;for-every i where mod n i returns true in the list *lpn*
+;;pretty interesting that the larger n gets
+;;(some (lambda (i) (when (mod0p n i) (push-single-f i))) *lpn*)
 
 (defun prime-factorisation (n)
   "https://youtu.be/-RhdzNYfF-M"
   (let ((primefactors ()))
     (labels ((pushnumber (n)
                (push n primefactors))
+             (push-single-f (i)
+               (pushnumber i) (single-factor (/ n i)))
              (single-factor (n)
                (cond ((primep n) (pushnumber n))
-                     ((mod0p n 2) (pushnumber 2) (single-factor (/ n 2)))
-                     ((mod0p n 3) (pushnumber 3) (single-factor (/ n 3)))
-                     ((mod0p n 5) (pushnumber 5) (single-factor (/ n 5)))
-                     ((mod0p n 7) (pushnumber 7) (single-factor (/ n 7)))
-                     ((mod0p n 11) (pushnumber 11) (single-factor (/ n 11))))))
+                     ((mod0p n 2) (push-single-f 2))
+                     ((mod0p n 3) (push-single-f 3))
+                     ((mod0p n 5) (push-single-f 5))
+                     ((mod0p n 7) (push-single-f 7))
+                     ((mod0p n 11) (push-single-f 11)))))
              (single-factor n)
              primefactors)))
 
