@@ -43,6 +43,7 @@
 ;;for-every i where mod n i returns true in the list *lpn*
 ;;pretty interesting that the larger n gets
 ;;(some (lambda (i) (when (mod0p n i) (push-single-f i))) *lpn*)
+;;if n is very large it blows the stack especially if it is an even number because an even number divided by 2..is another even number so this a bit of a problem and it can be solved by asking if it is even, then square rooting it
 
 (defun prime-factorisation (n)
   "https://youtu.be/-RhdzNYfF-M"
@@ -52,14 +53,14 @@
              (push-single-f (i)
                (pushnumber i) (single-factor (/ n i)))
              (single-factor (n)
-               (cond ((primep n) (pushnumber n))
-                     ((mod0p n 2) (push-single-f 2))
-                     ((mod0p n 3) (push-single-f 3))
-                     ((mod0p n 5) (push-single-f 5))
-                     ((mod0p n 7) (push-single-f 7))
-                     ((mod0p n 11) (push-single-f 11)))))
-             (single-factor n)
-             primefactors)))
+               (if (primep n)
+                   (pushnumber n)
+                   (some (lambda (i)
+                           (when (mod0p n i)
+                             (push-single-f i)))
+                         *lpn*))))
+      (single-factor n)
+      primefactors)))
 
 (defun goldbach-conjecture (n lpn)
   "Predicate proof based off of Goldbach's conjecture - will return a list of the SUM of the first two prime numbers. The lowest prime number starts at 2 and increments to the next prime number until it returns that either the difference between the lpn and the even number is also a prime (TRUE) or it will return NIL if Goldbach was wrong. In this way you can define a even number differently as the sum of the two lowest prime numbers."
@@ -96,3 +97,5 @@
       ;; count the elements in the list
       ;;else NIL = FALSE = Goldbach was wrong about even numbers
       ))
+
+
